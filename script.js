@@ -52,21 +52,33 @@ contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
     
     // Get form values
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        phone: document.getElementById('phone').value,
-        message: document.getElementById('message').value
-    };
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value || 'Not provided';
+    const message = document.getElementById('message').value;
     
-    // Here you would typically send this to a server
-    console.log('Form submitted:', formData);
+    // Create email subject and body
+    const subject = encodeURIComponent(`New Application from ${name}`);
+    const body = encodeURIComponent(
+        `Name: ${name}\n` +
+        `Email: ${email}\n` +
+        `Phone: ${phone}\n\n` +
+        `Message:\n${message}`
+    );
+    
+    // Create mailto link
+    const mailtoLink = `mailto:bodybya9@gmail.com?subject=${subject}&body=${body}`;
+    
+    // Open email client
+    window.location.href = mailtoLink;
     
     // Show success message
-    alert('Thank you for your message! I\'ll get back to you soon.');
+    alert('Thank you for your application! Your email client will open to send the message.');
     
-    // Reset form
-    contactForm.reset();
+    // Reset form after a short delay
+    setTimeout(() => {
+        contactForm.reset();
+    }, 1000);
 });
 
 // Smooth scroll for anchor links
