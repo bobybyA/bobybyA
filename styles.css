@@ -259,6 +259,77 @@ section {
     margin-bottom: 4rem;
 }
 
+/* Belief Section */
+.belief {
+    background: linear-gradient(to bottom, #ffffff 0%, #faf5ff 50%, #ffffff 100%);
+    padding: 100px 0;
+}
+
+.belief-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.belief-quote {
+    margin-bottom: 3rem;
+}
+
+.belief-main-quote {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 1.6;
+    color: var(--text-dark);
+    margin: 0;
+    padding: 2rem;
+    position: relative;
+}
+
+.belief-main-quote::before {
+    content: '"';
+    font-size: 4rem;
+    color: var(--primary-color);
+    opacity: 0.3;
+    position: absolute;
+    top: -10px;
+    left: 0;
+    font-family: 'Dancing Script', cursive;
+}
+
+.belief-main-quote::after {
+    content: '"';
+    font-size: 4rem;
+    color: var(--primary-color);
+    opacity: 0.3;
+    position: absolute;
+    bottom: -30px;
+    right: 0;
+    font-family: 'Dancing Script', cursive;
+}
+
+.belief-text {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.belief-text p {
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+}
+
+.belief-closing {
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--pink-pastel);
+}
+
 .section-title {
     font-family: 'Dancing Script', cursive;
     font-size: 3rem;
@@ -719,6 +790,25 @@ section {
     .section-title {
         font-size: 2.5rem;
     }
+
+    .belief-main-quote {
+        font-size: 1.8rem;
+        padding: 1.5rem;
+    }
+
+    .belief-main-quote::before,
+    .belief-main-quote::after {
+        font-size: 3rem;
+    }
+
+    .belief-text {
+        text-align: center;
+    }
+
+    .belief-text p {
+        font-size: 1rem;
+    }
+}
 
     .hero-buttons {
         flex-direction: column;
