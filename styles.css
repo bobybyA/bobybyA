@@ -168,7 +168,7 @@ body {
 
 .hero-content {
     text-align: center;
-    z-index: 1;
+    z-index: 2;
     position: relative;
 }
 
