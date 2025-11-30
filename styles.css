@@ -270,20 +270,28 @@ section {
 }
 
 .belief-content {
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
-    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.belief-text-content {
+    display: flex;
+    flex-direction: column;
 }
 
 .belief-image {
-    margin-bottom: 3rem;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .belief-photo {
     width: 100%;
-    max-width: 600px;
+    max-width: 500px;
     height: auto;
     border-radius: 20px;
     box-shadow: var(--shadow-lg);
@@ -291,7 +299,7 @@ section {
 }
 
 .belief-quote {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .belief-main-quote {
@@ -301,8 +309,9 @@ section {
     line-height: 1.6;
     color: var(--text-dark);
     margin: 0;
-    padding: 2rem;
+    padding: 2rem 2rem 2rem 0;
     position: relative;
+    text-align: left;
 }
 
 .belief-main-quote::before {
@@ -519,7 +528,7 @@ section {
 
 .testimonials-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
 }
 
@@ -775,6 +784,19 @@ section {
         grid-template-columns: 1fr;
     }
 
+    .belief-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .belief-image {
+        order: -1;
+    }
+
+    .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     .contact-content {
         grid-template-columns: 1fr;
     }
@@ -835,7 +857,8 @@ section {
 
     .belief-main-quote {
         font-size: 1.8rem;
-        padding: 1.5rem;
+        padding: 1.5rem 1.5rem 1.5rem 0;
+        text-align: left;
     }
 
     .belief-main-quote::before,
@@ -844,13 +867,12 @@ section {
     }
 
     .belief-text {
-        text-align: center;
+        text-align: left;
     }
 
     .belief-text p {
         font-size: 1rem;
     }
-}
 
     .hero-buttons {
         flex-direction: column;
@@ -861,7 +883,10 @@ section {
         text-align: center;
     }
 
-    .services-grid,
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
     .testimonials-grid {
         grid-template-columns: 1fr;
     }
