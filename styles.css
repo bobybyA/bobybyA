@@ -225,7 +225,7 @@ body {
 }
 
 .btn-primary {
-    background: var(--primary-color);
+    background: #da7fe8;
     color: white;
     font-weight: 600;
     letter-spacing: 0.1em;
@@ -235,7 +235,7 @@ body {
 }
 
 .btn-primary:hover {
-    background: var(--primary-dark);
+    background: #c86dd6;
     transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
 }
@@ -273,6 +273,21 @@ section {
     max-width: 900px;
     margin: 0 auto;
     text-align: center;
+}
+
+.belief-image {
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: center;
+}
+
+.belief-photo {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: var(--shadow-lg);
+    object-fit: cover;
 }
 
 .belief-quote {
@@ -362,6 +377,15 @@ section {
 .about-image {
     display: flex;
     justify-content: center;
+}
+
+.about-photo {
+    width: 100%;
+    max-width: 400px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
 }
 
 .about-placeholder {
@@ -802,6 +826,11 @@ section {
 
     .section-title {
         font-size: 2.5rem;
+    }
+
+    .belief-photo {
+        max-width: 100%;
+        border-radius: 15px;
     }
 
     .belief-main-quote {
