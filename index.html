@@ -213,7 +213,10 @@
                         <a href="#" class="social-link" aria-label="LinkedIn">LinkedIn</a>
                     </div>
                 </div>
-                <form class="contact-form" id="contactForm">
+                <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <input type="hidden" name="_to" value="bodybya9@gmail.com">
+                    <input type="hidden" name="_subject" value="New Application - Body by A">
+                    <input type="hidden" name="_replyto" value="">
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" required>
@@ -231,6 +234,7 @@
                         <textarea id="message" name="message" rows="5" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">APPLY HERE</button>
+                    <div id="form-status" class="form-status"></div>
                 </form>
             </div>
         </div>

@@ -45,40 +45,66 @@ window.addEventListener('scroll', () => {
     lastScroll = currentScroll;
 });
 
-// Form submission
+// Form submission with Formspree
 const contactForm = document.getElementById('contactForm');
+const formStatus = document.getElementById('form-status');
 
-contactForm.addEventListener('submit', (e) => {
+contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     
     // Get form values
-    const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
-    const phone = document.getElementById('phone').value || 'Not provided';
-    const message = document.getElementById('message').value;
     
-    // Create email subject and body
-    const subject = encodeURIComponent(`New Application from ${name}`);
-    const body = encodeURIComponent(
-        `Name: ${name}\n` +
-        `Email: ${email}\n` +
-        `Phone: ${phone}\n\n` +
-        `Message:\n${message}`
-    );
+    // Set reply-to field
+    const replyToInput = contactForm.querySelector('input[name="_replyto"]');
+    if (replyToInput) {
+        replyToInput.value = email;
+    }
     
-    // Create mailto link
-    const mailtoLink = `mailto:bodybya9@gmail.com?subject=${subject}&body=${body}`;
+    // Show loading state
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+    const originalButtonText = submitButton.textContent;
+    submitButton.textContent = 'Sending...';
+    submitButton.disabled = true;
+    formStatus.textContent = '';
+    formStatus.className = 'form-status';
     
-    // Open email client
-    window.location.href = mailtoLink;
-    
-    // Show success message
-    alert('Thank you for your application! Your email client will open to send the message.');
-    
-    // Reset form after a short delay
-    setTimeout(() => {
-        contactForm.reset();
-    }, 1000);
+    try {
+        // Get form action URL
+        const formAction = contactForm.action;
+        
+        // Prepare form data
+        const formData = new FormData(contactForm);
+        
+        // Send to Formspree
+        const response = await fetch(formAction, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+        
+        if (response.ok) {
+            // Success
+            formStatus.textContent = 'Thank you! Your application has been sent successfully.';
+            formStatus.className = 'form-status form-status-success';
+            contactForm.reset();
+        } else {
+            // Error from Formspree
+            const data = await response.json();
+            throw new Error(data.error || 'Something went wrong');
+        }
+    } catch (error) {
+        // Show error message
+        formStatus.textContent = 'Sorry, there was an error sending your message. Please try again or email us directly at bodybya9@gmail.com';
+        formStatus.className = 'form-status form-status-error';
+        console.error('Form error:', error);
+    } finally {
+        // Reset button
+        submitButton.textContent = originalButtonText;
+        submitButton.disabled = false;
+    }
 });
 
 // Smooth scroll for anchor links
