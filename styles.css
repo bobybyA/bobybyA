@@ -146,13 +146,13 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
+    width: 50%;
+    height: 50%;
     transform: translate(-50%, -50%);
     object-fit: cover;
     z-index: 0;
+    border-radius: 20px;
+    opacity: 0.8;
 }
 
 .hero-overlay {
@@ -161,7 +161,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to right, rgba(255, 179, 217, 0.7) 0%, rgba(196, 181, 253, 0.7) 50%, rgba(167, 139, 250, 0.7) 100%);
+    background: linear-gradient(to right, var(--pink-pastel) 0%, var(--lavender) 50%, var(--purple-pastel) 100%);
     z-index: 1;
     pointer-events: none;
 }
@@ -870,6 +870,11 @@ section {
 }
 
 @media (max-width: 768px) {
+    .hero-video {
+        width: 80%;
+        height: 40%;
+    }
+
     .hero-logo {
         font-size: 3rem;
     }
