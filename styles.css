@@ -49,7 +49,7 @@ body {
 
 .nav-wrapper {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 1rem 0;
 }
@@ -118,6 +118,10 @@ body {
     border: none;
     cursor: pointer;
     padding: 5px;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .menu-toggle span {
@@ -749,6 +753,15 @@ section {
 
     .contact-content {
         grid-template-columns: 1fr;
+    }
+
+    .nav-wrapper {
+        justify-content: center;
+        position: relative;
+    }
+
+    .menu-toggle {
+        display: flex;
     }
 
     .nav-menu {
